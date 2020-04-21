@@ -36,7 +36,7 @@ module.exports = {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    // '@nuxtjs/eslint-module'
   ],
   /*
   ** Nuxt.js modules
@@ -55,11 +55,11 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    transpile: [/^element-ui/],
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
+    // transpile: [/^element-ui/],
+    // /*
+    // ** You can extend webpack config here
+    // */
+    // extend (config, ctx) {
+    // }
   }
 }

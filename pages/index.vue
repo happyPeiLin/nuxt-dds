@@ -2,40 +2,47 @@
   <div class="container">
     <div>
       <logo />
-      <h1 class="title">
-        nuxt-dds
-      </h1>
+      <h1 class="title">nuxt-dds</h1>
       <h2 class="subtitle">
-        My grand Nuxt.js project
+        My grand Nuxt.js projectfff
+        <button @click="koa">koaPost</button>
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
+        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import axios from 'axios'
+import Logo from "~/components/Logo.vue";
 
 export default {
   components: {
     Logo
+  },
+  methods: {
+    koa() {
+      let self = this;
+      console.log("hello motherfucker");
+
+      axios
+        .post("/users/addUser", {
+          username: "hellpo",
+          password: "29837687",
+          email: "iusahf@caoni.com"
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
   }
-}
+};
 </script>
 
 <style>
@@ -49,8 +56,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

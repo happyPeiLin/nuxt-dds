@@ -10,6 +10,21 @@ let router = new Router({prefix: '/users'})
 
 let Store = new Redis().client
 
+
+router.post('/addUser', async function(ctx) {
+  const user = new User({Username: ctx.request.body.username, password: ctx.request.body.password, email:ctx.request.body.email})
+  let code
+  try {
+    await user.save()
+    code = 0
+  } catch (e) {
+    code = -1
+  }
+  ctx.body = {
+    code: code
+  }
+})
+
 router.post('/signup', async (ctx) => {
   const {username, password, email, code} = ctx.request.body;
 
