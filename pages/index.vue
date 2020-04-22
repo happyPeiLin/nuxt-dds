@@ -304,8 +304,6 @@ export default {
       group2: "",
       nickname: "匿名",
       lastScore: 0,
-      // audioUrl: require("../assets/wx.mp3"),
-      // audioUrl2: require("../assets/ohoh.mp3"),
       id: 0,
       idSpare: 0,
       type: 0,
@@ -325,32 +323,13 @@ export default {
         var value1 = a[property];
         var value2 = b[property];
         if (desc == true) {
-          // 升序排列
           return value1 - value2;
         } else {
-          // 降序排列
           return value2 - value1;
         }
       };
     },
-    // forbid() {
-    //   var lastTouchEnd = 0;
-    //   console.log(document.documentElement + "document.documentElement")
-    //   document.documentElement.addEventListener(
-    //     "touchend",
-    //     function(event) {
-    //       var now = Date.now();
-    //       if (now - lastTouchEnd <= 300) {
-    //         event.preventDefault();
-    //       }
-    //       lastTouchEnd = now;
-    //     },
-    //     false
-    //   );
-    // },
-
     koaget() {
-      // console.log(new Date().toLocaleString('chinese',{hour12:false}))
       var self = this;
       axios
         .post("http://localhost:3000/users/getUser", {
@@ -424,7 +403,6 @@ export default {
           this.countTime--;
         }, 1000);
       } else {
-        // console.log("请勿重复点击开始按钮");
       }
     },
 
@@ -434,12 +412,10 @@ export default {
           e.target.src !== undefined &&
           (this.type === 1) & (this.state2 === 2)
         ) {
-          // console.log("hhh " + e.target.src);
 
           this.score++;
           this.state2++;
 
-          // this.$refs.audio.play();
 
           document.getElementsByClassName("good")[this.id - 1].style.display =
             "block";
@@ -473,7 +449,6 @@ export default {
         ) {
           this.score = this.score + 2;
           this.state3++;
-          // this.$refs.audio.play();
           document.getElementsByClassName("good")[this.id - 1].style.display =
             "block";
           this.id = 10;
@@ -491,7 +466,6 @@ export default {
           }, 700);
         } else {
           this.score--;
-          // this.$refs.audio2.play();
         }
       } else {
         alert("请点击开始游戏");
@@ -681,49 +655,33 @@ export default {
   width: 100%;
 }
 .line1 {
-  /* background-color: red;
-  opacity: 0.5; */
   height: 100px;
   display: flex;
 }
 .line2 {
-  /* background-color: orange;
-  opacity: 0.5; */
   height: 145px;
 }
 .line3 {
-  /* background-color: yellow;
-  opacity: 0.5; */
   height: 140px;
 }
 .line4 {
-  /* background-color: green;
-  opacity: 0.5; */
   height: 155px;
 }
 .line5 {
-  /* background-color: blue;
-  opacity: 0.5; */
   height: 60px;
 }
 
 .line22 {
   width: 20%;
-  /* opacity: 0.5;
-  background-color: pink; */
   height: 100%;
   display: inline-block;
-  /* border: 1px solid black; */
   box-sizing: border-box;
 }
 
 .line33 {
   width: 23%;
-  /* opacity: 0.5;
-  background-color: pink; */
   height: 100%;
   display: inline-block;
-  /* border: 1px solid black; */
   box-sizing: border-box;
 }
 
