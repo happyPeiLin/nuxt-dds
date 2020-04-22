@@ -6,19 +6,19 @@
         <audio ref="audio2"></audio>
         游戏规则：开始游戏后会随机出现三种地鼠
         <span>
-          <img src="../assets/ds1.jpg" alt />
+          <img src="../static/ds1.jpg" alt />
         </span>
         <span>
-          <img src="../assets/ds2.jpg" alt />
+          <img src="../static/ds2.jpg" alt />
         </span>
         <span>
-          <img src="../assets/ds3.jpg" alt />
+          <img src="../static/ds3.jpg" alt />
         </span>,单击
         <span>
-          <img src="../assets/ds1.jpg" alt />
+          <img src="../static/ds1.jpg" alt />
         </span> 得一分，双击
         <span>
-          <img src="../assets/ds3.jpg" alt />
+          <img src="../static/ds3.jpg" alt />
         </span>
         得两分。点击错误扣一分。如果你的得分进入前十，将可以记录进左侧排行榜。如使用手机模式，则无法看到排行榜，但仍能记录得分。
       </div>
@@ -80,66 +80,66 @@
             <button @click="confirm">确定</button>
           </div>
           <div id="box1" class="line22 mark" @click="click($event)" style="margin-left:200px">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
-            <img class="bad" src="../assets/bad.jpg" style="width:100%; height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="bad" src="../static/bad.jpg" style="width:100%; height:100%" alt />
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===1&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===1&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===1&type===3"
             />
           </div>
           <div id="box2" class="line22 mark" @click="click($event)">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===2&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===2&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===2&type===3"
             />
           </div>
           <div id="box3" class="line22 mark" @click="click($event)">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===3&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===3&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===3&type===3"
@@ -148,66 +148,66 @@
         </div>
         <div class="line3">
           <div id="box4" class="line33 mark" @click="click($event)" style="margin-left:150px">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===4&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===4&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===4&type===3"
             />
           </div>
           <div id="box5" class="line33 mark" @click="click($event)">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===5&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===5&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===5&type===3"
             />
           </div>
           <div id="box6" class="line33 mark" @click="click($event)">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===6&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===6&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===6&type===3"
@@ -216,66 +216,66 @@
         </div>
         <div class="line4">
           <div id="box7" class="line44 mark" @click="click($event)" style="margin-left:130px">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===7&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===7&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===7&type===3"
             />
           </div>
           <div id="box8" class="line44 mark" @click="click($event)">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===8&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===8&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===8&type===3"
             />
           </div>
           <div id="box9" class="line44 mark" @click="click($event)">
-            <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
+            <img class="good" src="../static/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
-              src="../assets/ds1.jpg"
+              src="../static/ds1.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===9&type===1"
             />
             <img
-              src="../assets/ds2.jpg"
+              src="../static/ds2.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===9&type===2"
             />
             <img
-              src="../assets/ds3.jpg"
+              src="../static/ds3.jpg"
               alt
               style="width:100%;height:100%"
               v-show="id===9&type===3"
@@ -608,7 +608,7 @@ export default {
 }
 
 .home {
-  background: url("../assets/ds4.jpg");
+  background: url("../static/ds4.jpg");
   background-size: 300px 100px;
 }
 .flex {
@@ -616,7 +616,7 @@ export default {
   justify-content: center;
 }
 .background {
-  background: url("../assets/bjt.jpg") no-repeat;
+  background: url("../static/bjt.jpg") no-repeat;
   background-size: 100%;
   width: 1000px;
   min-width: 1000px;
