@@ -2,7 +2,7 @@
   <div class="home">
     <div class="blank">
       <div class="rule">
-        <audio ref="audio" ></audio>
+        <audio ref="audio"></audio>
         <audio ref="audio2"></audio>
         游戏规则：开始游戏后会随机出现三种地鼠
         <span>
@@ -72,14 +72,14 @@
           <div class="count" style="flex:20">倒计时：{{this.countTime}}</div>
           <div style="flex:5"></div>
         </div>
-        <div class="line2" >
+        <div class="line2">
           <div class="notice">
             <p class="remin">你可在此处输入你的昵称，如果你的得分在前十，你的昵称和得分将会在排行榜显示</p>
             本轮得分： {{this.score}}
             <input id="reminder" placeholder="请输入昵称" maxlength="12" />
             <button @click="confirm">确定</button>
           </div>
-          <div id="box1" class="line22 mark" @click="click($event)" style="margin-left:200px" >
+          <div id="box1" class="line22 mark" @click="click($event)" style="margin-left:200px">
             <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
             <img class="bad" src="../assets/bad.jpg" style="width:100%; height:100%" alt />
             <img
@@ -147,7 +147,7 @@
           </div>
         </div>
         <div class="line3">
-          <div id="box4" class="line33 mark" @click="click($event)" style="margin-left:150px" >
+          <div id="box4" class="line33 mark" @click="click($event)" style="margin-left:150px">
             <img class="good" src="../assets/dmz.jpg" style="width:100%;height:100%" alt />
 
             <img
@@ -346,29 +346,28 @@ export default {
     },
 
     confirm() {
+      this.lastScore = this.score;
       if (document.getElementById("reminder").value !== "") {
         this.nickname = document.getElementById("reminder").value;
-        console.log("nickname= " + this.nickname)
-      
-      this.time = new Date().toLocaleString("chinese", { hour12: false });
-      console.log(this.time);
+        console.log("nickname= " + this.nickname);
 
-      axios
-        .post("http://localhost:3000/users/addUser", {
-          name: this.nickname,
-          age: this.lastScore,
-          type: "type999",
-          time: this.time
-        })
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
+        this.time = new Date().toLocaleString("chinese", { hour12: false });
+        console.log(this.time);
 
+        axios
+          .post("http://localhost:3000/users/addUser", {
+            name: this.nickname,
+            age: this.lastScore,
+            type: "type999",
+            time: this.time
+          })
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
       }
-      this.lastScore = this.score;
       this.koaget();
       this.words = "开始游戏";
       this.state = false;
@@ -412,10 +411,8 @@ export default {
           e.target.src !== undefined &&
           (this.type === 1) & (this.state2 === 2)
         ) {
-
           this.score++;
           this.state2++;
-
 
           document.getElementsByClassName("good")[this.id - 1].style.display =
             "block";
@@ -616,7 +613,7 @@ export default {
 }
 .flex {
   display: -webkit-flex;
-   justify-content: center
+  justify-content: center;
 }
 .background {
   background: url("../assets/bjt.jpg") no-repeat;
