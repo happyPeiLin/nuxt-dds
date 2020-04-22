@@ -1,18 +1,84 @@
 import Router from 'koa-router';
 import Redis from 'koa-redis'
 import nodeMailer from 'nodemailer'
+import Person from '../dbs/models/person'
+import Fucker from '../dbs/models/fuckers'
 import User from '../dbs/models/users'
 import Passport from './utils/passport'
 import Email from '../dbs/config'
 import axios from './utils/axios'
 
-let router = new Router({prefix: '/users'})
+let router = new Router({
+  prefix: '/users'
+})
 
 let Store = new Redis().client
 
 
-router.post('/addUser', async function(ctx) {
-  const user = new User({Username: ctx.request.body.username, password: ctx.request.body.password, email:ctx.request.body.email})
+router.post('/getPerson', async function (ctx) {
+  const results = await Person.find({
+    type: ctx.request.body.type
+  })
+  ctx.body = {
+    code: 0,
+    results
+  }
+})
+
+
+router.post('/addPerson', async function (ctx) {
+  const person = new Person({
+    name: ctx.request.body.name,
+    age: ctx.request.body.age,
+    type: ctx.request.body.type,
+    time: ctx.request.body.time
+  })
+  let code
+  try {
+    await person.save()
+    code = 0
+  } catch (e) {
+    code = -1
+  }
+  ctx.body = {
+    code: code
+  }
+})
+
+
+
+
+router.post('/addFucker', async function (ctx) {
+  const fucker = new Fucker({
+    Fuckername: ctx.request.body.username,
+    password: ctx.request.body.password,
+    email: ctx.request.body.email
+  })
+  let code
+  try {
+    await fucker.save()
+    code = 0
+  } catch (e) {
+    code = -1
+  }
+  ctx.body = {
+    code: code
+  }
+})
+
+
+
+
+
+
+
+router.post('/addUser', async function (ctx) {
+  const user = new User({
+    name: ctx.request.body.name,
+    age: ctx.request.body.age,
+    time: ctx.request.body.time,
+    type: ctx.request.body.type,
+  })
   let code
   try {
     await user.save()
@@ -25,8 +91,24 @@ router.post('/addUser', async function(ctx) {
   }
 })
 
+
+router.post('/getUser', async function(ctx) {
+  console.log('hello mmp')
+  const results = await User.find({type: ctx.request.body.type})
+  ctx.body = {
+    code: 0,
+    results
+  }
+})
+
+
 router.post('/signup', async (ctx) => {
-  const {username, password, email, code} = ctx.request.body;
+  const {
+    username,
+    password,
+    email,
+    code
+  } = ctx.request.body;
 
   if (code) {
     const saveCode = await Store.hget(`nodemail:${username}`, 'code')
@@ -51,7 +133,9 @@ router.post('/signup', async (ctx) => {
       msg: '请填写验证码'
     }
   }
-  let user = await User.find({username})
+  let user = await User.find({
+    username
+  })
   if (user.length) {
     ctx.body = {
       code: -1,
@@ -59,9 +143,16 @@ router.post('/signup', async (ctx) => {
     }
     return
   }
-  let nuser = await User.create({username, password, email})
+  let nuser = await User.create({
+    username,
+    password,
+    email
+  })
   if (nuser) {
-    let res = await axios.post('/users/signin', {username, password})
+    let res = await axios.post('/users/signin', {
+      username,
+      password
+    })
     if (res.data && res.data.code === 0) {
       ctx.body = {
         code: 0,
@@ -83,7 +174,7 @@ router.post('/signup', async (ctx) => {
 })
 
 router.post('/signin', async (ctx, next) => {
-  return Passport.authenticate('local', function(err, user, info, status) {
+  return Passport.authenticate('local', function (err, user, info, status) {
     if (err) {
       ctx.body = {
         code: -1,
@@ -162,19 +253,5 @@ router.get('/exit', async (ctx, next) => {
   }
 })
 
-router.get('/getUser', async (ctx) => {
-  if (ctx.isAuthenticated()) {
-    const {username, email} = ctx.session.passport.user
-    ctx.body={
-      user:username,
-      email
-    }
-  }else{
-    ctx.body={
-      user:'',
-      email:''
-    }
-  }
-})
 
 export default router

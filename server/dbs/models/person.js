@@ -2,25 +2,24 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const UserSchema = new Schema({
+const personSchema = new Schema({
     name:{
         type:String,
-        // unique: true,
-        // require:true
     },
     age:{
         type:Number,
-        // require:true
-    },
-    time:{
-        type:String,
-        // require:true
     },
     type:{
+        type:String,
+    },
+    time:{
         type:String,
     }
 })
 
-export default mongoose.model('User',UserSchema)
+export default mongoose.model('Person',personSchema)
+
+
+
 
 
