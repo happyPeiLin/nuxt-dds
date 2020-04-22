@@ -33,7 +33,6 @@ router.post('/addUser', async function (ctx) {
 
 
 router.post('/getUser', async function(ctx) {
-  console.log('hello mmp')
   const results = await User.find({type: ctx.request.body.type})
   ctx.body = {
     code: 0,

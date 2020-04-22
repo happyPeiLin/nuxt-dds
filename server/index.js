@@ -28,8 +28,6 @@ let config = require('../nuxt.config.js')
 config.dev = !(app.env === 'production')
 
 async function start() {
-  console.log('掉泪楼木')
-  consola.log('同调雷楼某')
   // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
 
